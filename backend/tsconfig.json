@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "ES6",                                  // Target ECMAScript version
+    "module": "commonjs",                             // Module system (CommonJS for Node.js)
+    "rootDir": "./src",                               // Source root directory
+    "outDir": "./dist",                               // Output directory for compiled files
+    "strict": true,                                   // Enable strict type-checking options
+    "esModuleInterop": true,                          // Enable compatibility between CommonJS and ES6 modules
+    "forceConsistentCasingInFileNames": true,         // Enforce consistent file name casing
+    "skipLibCheck": true,                             // Skip checking types of all declaration files
+    "noImplicitAny": true,                            // Enable error for `any` type usage
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",                       // Use Node.js module resolution
+    "resolveJsonModule": true,                        // Allow importing `.json` files
+
+    /* Source Map Options */
+    "sourceMap": true,                                // Enable source maps for debugging
+    "inlineSourceMap": false,                         // Disable inline source maps
+
+    /* Type Checking Options */
+    "strictNullChecks": true,                         // Ensure stricter null/undefined checks
+    "noImplicitReturns": true,                        // Report an error for functions that don't explicitly return
+    "noUnusedLocals": true,                           // Report errors on unused local variables
+    "noUnusedParameters": false                        // Report errors on unused function parameters
+  },
+  "include": ["src/**/*.ts"],                         // Include all TypeScript files in the src folder
+  "exclude": ["node_modules"]                         // Exclude node_modules folder
+}
