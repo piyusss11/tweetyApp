@@ -1,4 +1,4 @@
-import mongoose, { Document, Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 // Define the interface for the user document
 interface IUser extends Document {
@@ -6,6 +6,7 @@ interface IUser extends Document {
   username: string;
   password: string;
   email: string;
+  posts: string[];
 }
 
 // Define the user schema
@@ -15,6 +16,7 @@ const userSchema: Schema<IUser> = new Schema(
     username: { type: String, required: true },
     password: { type: String, required: true, minlength: 6 },
     email: { type: String, required: true, unique: true },
+    posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
   },
   { timestamps: true }
 );

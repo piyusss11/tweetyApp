@@ -1,10 +1,11 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 const Register: FC = () => {
   return (
     <div className="w-full h-screen bg-zinc-800 p-10 text-white  flex flex-col ">
       <h1 className="tracking-tighter text-3xl mb-5 ">Register</h1>
-      <form className="flex gap-2" method="post" action="/Register">
+      <form className="flex gap-2" method="post" action="/api/users/register">
         <input
           className="py-2 px-4 bg-transparent border-2 outline-none border-zinc-400 rounded-lg"
           type="text"
@@ -35,6 +36,12 @@ const Register: FC = () => {
           value={"Register"}
         />
       </form>
+      <div className="mt-5">
+        Already a user?
+        <Link to={"/login"}>
+          <span className="ml-2 underline cursor-pointer text-blue-500">Login</span>
+        </Link>
+      </div>
     </div>
   );
 };
