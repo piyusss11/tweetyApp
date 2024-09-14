@@ -2,8 +2,7 @@ import mongoose, { Schema, Document, Types } from "mongoose";
 
 // Update the interface to use ObjectId for user and likes
 interface Ipost extends Document {
-  user: Types.ObjectId;   // User is referenced by ObjectId
-  title: string;
+  user: Types.ObjectId; // User is referenced by ObjectId
   content: string;
   likes: Types.ObjectId[]; // Likes will be an array of ObjectIds
 }
@@ -12,7 +11,6 @@ interface Ipost extends Document {
 const postSchema: Schema<Ipost> = new Schema(
   {
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
-    title: { type: String, required: true },
     content: { type: String, required: true },
     likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }], // Array of User ObjectIds
   },

@@ -1,7 +1,12 @@
-import { FC } from "react";
-import { Link } from "react-router-dom";
+import { FC, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { isAuthenticated } from "../utils/auth";
 
 const Login: FC = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (isAuthenticated()) navigate("/profile");
+  }, [navigate]);
   return (
     <div className="w-full h-screen bg-zinc-800 p-10 text-white  flex flex-col ">
       <h1 className="tracking-tighter text-3xl mb-5 ">Login</h1>
@@ -27,7 +32,9 @@ const Login: FC = () => {
       <div className="mt-5">
         Not a user?
         <Link to={"/"}>
-          <span className="ml-2 underline cursor-pointer text-blue-500">Register</span>
+          <span className="ml-2 underline cursor-pointer text-blue-500">
+            Register
+          </span>
         </Link>
       </div>
     </div>
