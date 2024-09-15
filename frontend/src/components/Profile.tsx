@@ -16,7 +16,7 @@ const Profile: FC = () => {
 
     const fetchPosts = async () => {
       try {
-        const response = await fetch("/api/posts", {
+        const response = await fetch("/api/user/posts", {
           method: "GET",
           credentials: "include",
         });
@@ -74,8 +74,14 @@ const Profile: FC = () => {
                 className="relative w-1/3 px-3 py-1 rounded-lg outline-none bg-transparent border-[1px] h-[100px] overflow-hidden overflow-y-auto scrollbar-thin"
               >
                 <div className="flex justify-between items-center">
-                  <h1 className=" text-blue-600">@username</h1>
-                  <h1 className="text-red-600 cursor-pointer">delete</h1>
+                  <h1 className=" text-blue-600">@{post?.user?.username}</h1>
+                  <form action="/api/posts/delete" method="post">
+                    <input
+                      value={"delete"}
+                      type="submit"
+                      className="text-red-600 cursor-pointer"
+                    />
+                  </form>
                 </div>
                 <p>{post.content}</p>
               </div>

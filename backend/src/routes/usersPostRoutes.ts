@@ -16,7 +16,7 @@ router.get("/user/posts", authMiddleware, async (req: AuthenticatedRequest, res)
     }
 
     // Fetch posts for the user and populate the user field if needed
-    const posts = await PostModel.find({ user: userId }).populate("user");
+    const posts = await PostModel.find({ user: userId }).populate("user","username email");
 
     // Respond with the posts
     return res.status(200).json(posts);

@@ -9,7 +9,10 @@ import cors from "cors";
 
 const app = express();
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:5173", // or the URL of your React app
+    credentials: true // to allow cookies and auth headers
+  }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // app.use(authMiddleware)
